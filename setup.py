@@ -5,7 +5,7 @@ from setuptools import setup  # pylint: disable=import-error
 
 setup(
 		name="commonutil-fileio-checksum",
-		version="3.0.1",  # REV-CONSTANT:rev 5d022db7d38f580a850cd995e26a6c2f
+		version="3.0.2",  # REV-CONSTANT:rev 5d022db7d38f580a850cd995e26a6c2f
 		description="Caculate checksum for file at given path",
 		py_modules=[
 				"commonutil_fileio_checksum",
