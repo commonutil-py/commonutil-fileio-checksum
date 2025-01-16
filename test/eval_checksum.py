@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import sys
 import logging
+import sys
 from zlib import adler32
 
-from commonutil_fileio_checksum import b64digest
-from commonutil_fileio_checksum import checksum
-from commonutil_fileio_checksum import md5sum, sha256sum, sha512sum
+from commonutil_fileio_checksum import b64digest, checksum, md5sum, sha256sum, sha512sum
 
 _log = logging.getLogger(__name__)
 
@@ -20,7 +18,7 @@ class Adler32Hasher:
 		self.value = adler32(b, self.value)
 
 	def digest(self):
-		return self.value.to_bytes(4, 'big')
+		return self.value.to_bytes(4, "big")
 
 	def hexdigest(self):
 		return self.digest().hex()
@@ -53,4 +51,4 @@ def main():
 
 
 if __name__ == "__main__":
-	sys.exit(main())
+	main()

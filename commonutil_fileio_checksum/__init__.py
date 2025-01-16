@@ -3,12 +3,14 @@
 Utilities for computing checksum of file
 """
 
+from __future__ import annotations
+
 import hashlib
 from base64 import b64encode
 
 
-def checksum(file_path, hash_object):
-	""" Caculate checksum of file at `file_path` with `hash_object`.
+def checksum(file_path: str, hash_object: hashlib._Hash) -> hashlib._Hash:
+	"""Caculate checksum of file at `file_path` with `hash_object`.
 
 	Bytes from file at given path will feed into the hash object.
 	The same hash object will return one completed.
@@ -32,8 +34,8 @@ def checksum(file_path, hash_object):
 	return hash_object
 
 
-def b64digest(hash_object):
-	""" Encode digest result into Base64 with `=` stripped.
+def b64digest(hash_object: hashlib._Hash) -> str:
+	"""Encode digest result into Base64 with `=` stripped.
 
 	This function only supports fixed length digest (the `digest()` method
 	does not require `length` parameter).
@@ -44,11 +46,11 @@ def b64digest(hash_object):
 	Return:
 		Base64 encoded digest string with padding stripped.
 	"""
-	return b64encode(hash_object.digest()).rstrip(b'=').decode('ascii')
+	return b64encode(hash_object.digest()).rstrip(b"=").decode("ascii")
 
 
-def md5sum(file_path):
-	""" Caculate MD5 checksum of gievn file.
+def md5sum(file_path: str) -> hashlib._Hash:
+	"""Caculate MD5 checksum of gievn file.
 
 	Args:
 		file_path - The path of file to caculate MD5 checksum.
@@ -59,8 +61,8 @@ def md5sum(file_path):
 	return checksum(file_path, hashlib.md5())
 
 
-def sha256sum(file_path):
-	""" Caculate SHA-256 checksum of gievn file.
+def sha256sum(file_path: str) -> hashlib._Hash:
+	"""Caculate SHA-256 checksum of gievn file.
 
 	Args:
 		file_path - The path of file to caculate SHA-256 checksum.
@@ -71,8 +73,8 @@ def sha256sum(file_path):
 	return checksum(file_path, hashlib.sha256())
 
 
-def sha512sum(file_path):
-	""" Caculate SHA-512 checksum of gievn file.
+def sha512sum(file_path: str) -> hashlib._Hash:
+	"""Caculate SHA-512 checksum of gievn file.
 
 	Args:
 		file_path - The path of file to caculate SHA-512 checksum.
